@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Eye, EyeSlash } from 'styled-icons/bootstrap';
 
 const Wrapper = styled.div`
     padding: 20px;
@@ -21,11 +22,11 @@ const Notch = styled.div`
 const Word = styled.div`
     margin-top: 10px;
     background: ${props => props.theme.colors.accent2};
-    padding: 20px 0 0 0;
+    padding: 20px 10px 0 0;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     color: ${props => props.theme.colors.bg};
     font-size: 2em;
     font-family: ${props => props.theme.fonts.bold};
@@ -64,14 +65,33 @@ const Footer = styled.div`
     background: #fff;
     margin: 20px auto;
 `
+const ToggleBtn = styled.div`
+    width: 50px;
+    cursor: pointer;
+`
+const WordToggle = styled.div``
+
+const Spacing = styled.div`
+    width: 50px;
+`
 
 const Index = () => {
+
+    const [showWord, setShowWord] = useState(false);
+
     return (
         <Wrapper>
             <PhoneWrap>
                 <Notch />
                 <Word>
-                    ----
+                    <Spacing />
+                    <WordToggle>{ showWord ? 'Snow' : '----' }</WordToggle>
+                    <ToggleBtn onClick={() => setShowWord(!showWord)}>
+                        { showWord ? 
+                            <EyeSlash size={24} color="#111" /> :
+                            <Eye size={24} color="#111" />
+                        }
+                    </ToggleBtn>
                 </Word>
                 <CanYou>
                     Can you <Span>guess</Span> the word?
@@ -79,10 +99,10 @@ const Index = () => {
                 <UserWords>
                     <UserWordWrapper>
                         <UserWord>
-                            Winter
+                            White
                         </UserWord>
                         <UserName>
-                            Jesus
+                            Rick
                         </UserName>
                     </UserWordWrapper>
                     <UserWordWrapper>
@@ -90,7 +110,7 @@ const Index = () => {
                             Cold
                         </UserWord>
                         <UserName>
-                            ThePope
+                            Morty
                         </UserName>
                     </UserWordWrapper>
                     <UserWordWrapper>
@@ -98,15 +118,23 @@ const Index = () => {
                             Fall
                         </UserWord>
                         <UserName>
-                            YourMom
+                            Beth
                         </UserName>
                     </UserWordWrapper>
                     <UserWordWrapper>
                         <UserWord>
-                            White
+                            Winter
                         </UserWord>
                         <UserName>
-                            Alex
+                            Summer
+                        </UserName>
+                    </UserWordWrapper>
+                    <UserWordWrapper>
+                        <UserWord>
+                            ----
+                        </UserWord>
+                        <UserName>
+                            Jerry
                         </UserName>
                     </UserWordWrapper>
                 </UserWords>

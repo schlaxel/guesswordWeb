@@ -9,6 +9,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-styled-components',
     `gatsby-transformer-remark`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
           options: {
@@ -23,6 +24,18 @@ module.exports = {
           families: ['Sriracha', 'Source Sans Pro', 'Luckiest Guy']
         }
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Guessword`,
+        short_name: `Guessword`,
+        start_url: `/`,
+        background_color: `#121212`,
+        theme_color: `#121212`,
+        display: `browser`,
+        icon: `src/img/logo.png`
+      },
+    },
   ],
 }

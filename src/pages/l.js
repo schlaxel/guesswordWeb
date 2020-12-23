@@ -22,12 +22,13 @@ const GetIt = styled(Redirect)`
 `
 
 const Link = () => {
+    const location = useLocation();
     useEffect(() => {
-        const location = useLocation();
         const parsed = queryString.parse(location.search);
         const id = parsed.id;
-
-        window.location = `guessword://?gId:${id}`;
+        if (typeof window !== `undefined`) {
+            window.location = `guessword://?gId:${id}`;
+        }
     }, []);
 
     return (

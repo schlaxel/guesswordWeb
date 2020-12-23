@@ -27,7 +27,7 @@ const Link = () => {
         const parsed = queryString.parse(location.search);
         const id = parsed.id;
         if (typeof window !== `undefined`) {
-            window.location = `guessword://?gId:${id}`;
+            window.location = `guessword://?gId=${id}`;
         }
     }, []);
 

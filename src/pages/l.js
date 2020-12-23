@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import SiteWrapper from '../components/siteWrapper';
 import { useLocation } from '@reach/router';
@@ -21,12 +21,14 @@ const GetIt = styled(Redirect)`
     font-size: 20px;
 `
 
-export default function Link() {
-    const location = useLocation();
-    const parsed = queryString.parse(location.search);
-    const id = parsed.id;
+const Link = () => {
+    useEffect(() => {
+        const location = useLocation();
+        const parsed = queryString.parse(location.search);
+        const id = parsed.id;
 
-    window.location = `guessword://?gId:${id}`;
+        window.location = `guessword://?gId:${id}`;
+    }, []);
 
     return (
       <SiteWrapper>
@@ -42,3 +44,5 @@ export default function Link() {
       </SiteWrapper>
     )
 }
+
+export default Link;

@@ -13,6 +13,7 @@ const Heading = styled.h1`
     text-align: center;
     margin-bottom: 30px;
 `
+
 const Stores = styled.div`
     margin: 30px auto;
     display: flex;
@@ -32,10 +33,10 @@ const Header = () => {
             <Heading>Guessword</Heading>
             <Logo />
             <Stores>
-                <A href="https://google.play.com"> 
+                <A href="https://play.google.com/store/apps/details?id=media.kiefer.guessword"> 
                     <SImage src={gplay} alt="Google Play" />
                 </A>
-                <A href="https://google.play.com">
+                <A href="https://apps.apple.com/us/app/guessword-party-game/id1545221790">
                     <SImage src={astore} alt="App Store" />
                 </A>
             </Stores>
